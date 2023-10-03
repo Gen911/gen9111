@@ -4,21 +4,12 @@ import openpyxl
 import zipfile
 import numpy as np
 
-
 def load_excel(file_path):
     try:
         return pd.read_excel(file_path, engine='openpyxl', sheet_name=None)
     except (FileNotFoundError, zipfile.BadZipFile, ValueError) as e:
         print(f"Ошибка при чтении файла {file_path}: {e}")
         return None
-
-
-
-
-
-
-
-
 
 # Обрабокта файла с трафаретами
 directory_path = '/Users/gen/PycharmProjects/Files/pattern/'
@@ -64,10 +55,6 @@ for filename in files_in_directory:
         except Exception as e:
             continue
 
-
-
-
-
 # *** Обработка Брендовая полка ***
 directory_path = '/Users/gen/PycharmProjects/Files/shelf/'
 
@@ -99,12 +86,6 @@ for filename in os.listdir(directory_path):
 combined_file_path = '/Users/gen/PycharmProjects/Files/shelf/combined_data.xlsx'
 df_shelf.to_excel(combined_file_path, index=False, engine='openpyxl', header=['Расход, ₽, с НДС'])
 print(f'Объединенные данные сохранены в файле {combined_file_path}.')
-
-
-
-
-
-
 
 # *** Загрузка и обработка файлов Продвижение в поиске ***
 directory_path = '/Users/gen/PycharmProjects/Files/search/'  # Указываем путь к директории с файлами
@@ -496,6 +477,12 @@ if isinstance(total_sum, pd.Series):
 
 # Теперь присваиваем значение:
 df2.loc[1, 'Расход Брендовая полка'] = total_sum
+
+
+
+
+
+
 
 
 # *** Запись результатов ***
